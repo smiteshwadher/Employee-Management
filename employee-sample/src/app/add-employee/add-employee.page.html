@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Add Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="addEmployeeForm">
+    <formly-form [model]="model" [fields]="fields" [options]="options" [form]="addEmployeeForm"></formly-form>
+  </form>
+
+  <ion-row *ngIf="!showUpdateButton">
+    <ion-col size="6" offset="3">
+      <ion-button color="warning" [disabled]="!addEmployeeForm.valid" expand="block" (click)="saveEmployeeDetails()">
+        Save
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="showUpdateButton">
+    <ion-col size="6" offset="3">
+      <ion-button color="warning" [disabled]="!addEmployeeForm.valid" expand="block" (click)="updateEmployeeDetails()">
+        Update
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

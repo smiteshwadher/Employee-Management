@@ -1,0 +1,85 @@
+.rowClassConsistingOfButton {
+  margin-top: 10%;
+}
+
+.labelStyle {
+  text-align: center;
+}
+
+.card-borders {
+  border-right: 1px;
+  border-right-color: #e4e4e4;
+  border-right-style: solid;
+}
+
+.divConsistingOfCards{
+  width: 100%;
+}
+
+.labelClass { 
+  white-space: normal;
+}
+
+.styleForImageInIcon {
+  height: 30px;
+  width: 30px;
+  padding: 8px;
+}
+
+.styleForDeleteIcon {
+  height: 30px;
+  width: 30px;
+  margin-left: 10px;
+  padding: 8px;
+}
+
+.header-row {
+  font-weight: 500;
+  flex-wrap: nowrap;
+}
+
+.data-row {
+  flex-wrap: nowrap;
+  margin-top: 10px;
+}
+
+.gridClass { 
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+}
+
+.gridClass::-webkit-scrollbar { 
+  display: none; 
+} 
+
+.addressStyle {
+  text-align: center;
+  white-space: normal;
+}
+
+.columnsBorderForHeaderRow {
+  border-color: black; 
+  border-width: .01em; 
+  border-style:solid; margin-bottom : -1px;
+  background-color: #B4C6E7;
+}
+
+.columnsBorderForDataRow {
+  border-color: black; 
+  border-width: .01em; 
+  border-style:solid;
+  border-bottom: 1px solid black;
+}
+
+.divStyleForActions { 
+  margin: 10%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.divStyleForShowingOption {
+  text-align: center;
+  text-decoration: underline;
+}

@@ -1,0 +1,151 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Employee Management
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-row>
+    <ion-col size="6" offset="6">
+
+      <div class="divStyleForShowingOption" (click)="changeView()">
+        {{showOptionText}}
+      </div>
+
+      <ion-button color="warning" expand="block" (click)="navigateToEmployeePage()"> 
+        Add Employee
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="rowClassConsistingOfButton" *ngIf="!employeeDetails || employeeDetails.length === 0">
+    <div class="labelStyle">
+      Please Add at Atleast one Employee to see the Employee Table
+    </div>
+  </ion-row>
+
+  <div *ngIf="employeeDetails && employeeDetails.length > 0 && !showMobileUI" class="divConsistingOfCards">
+    <div *ngFor="let employee of employeeDetails; let i = index">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Employee Name : {{employee.employeeName}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-item lines="none">
+          <ion-label>
+            Sr No : {{i + 1}}
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            Gender : {{employee.employeeGender}}
+          </ion-label>
+
+          <ion-label>
+            Age : {{employee.employeeAge}}
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label class="labelClass">
+            Address : {{employee.employeeAddress}}
+          </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            Salary : INR {{employee.convertedSalary}}
+          </ion-label>
+        </ion-item>
+
+        <ion-footer>
+          <ion-row>
+            <ion-col>
+              <ion-icon class="styleForImageInIcon" name="pencil-outline" (click)="editEmployee(employee)"></ion-icon>
+              <ion-icon class="styleForDeleteIcon" name="trash-outline" (click)="deleteEmployee(employee)"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+      </ion-card>
+    </div>
+  </div>
+
+  <div *ngIf="employeeDetails && employeeDetails.length > 0 && showMobileUI">
+    <div class="gridClass">
+      <ion-row class="rowClassConsistingOfButton header-row">
+        <ion-col class="columnsBorderForHeaderRow" size="1">
+          #
+        </ion-col>
+  
+        <ion-col class="columnsBorderForHeaderRow" size="5">
+          Employee Name
+        </ion-col>
+    
+        <ion-col class="columnsBorderForHeaderRow" size="4">
+          Gender
+        </ion-col>
+    
+        <ion-col class="columnsBorderForHeaderRow" size="2">
+          Age
+        </ion-col>
+    
+        <ion-col class="columnsBorderForHeaderRow" size="6">
+          Address
+        </ion-col>
+  
+        <ion-col class="columnsBorderForHeaderRow" size="4">
+          Salary
+        </ion-col>
+  
+        <ion-col class="columnsBorderForHeaderRow" size="4">
+          Action
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="data-row" *ngFor="let employee of employeeDetails; let i = index">
+        <ion-col class="columnsBorderForDataRow" size="1">
+          {{i + 1}}
+        </ion-col>
+  
+        <ion-col class="columnsBorderForDataRow" size="5">
+          <div style="white-space: normal;">
+            {{employee?.employeeName}}
+          </div>
+        </ion-col>
+    
+        <ion-col class="columnsBorderForDataRow" size="4">
+          {{employee?.employeeGender}}
+        </ion-col>
+    
+        <ion-col class="columnsBorderForDataRow" size="2">
+          {{employee?.employeeAge}}
+        </ion-col>
+    
+        <ion-col class="columnsBorderForDataRow" size="6">
+          <div class="addressStyle">
+            {{employee?.employeeAddress}}
+          </div>
+        </ion-col>
+  
+        <ion-col class="columnsBorderForDataRow" size="4">
+          <div style="white-space: normal;">
+            INR {{employee?.convertedSalary}}
+          </div>
+        </ion-col>
+  
+        <ion-col class="columnsBorderForDataRow" size="4">
+          <div class="divStyleForActions" (click)="editEmployee(employee)">
+            Edit
+          </div>
+
+          <div class="divStyleForActions" (click)="deleteEmployee(employee)">
+            Delete
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
